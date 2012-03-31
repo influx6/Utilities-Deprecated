@@ -3,7 +3,7 @@ Just a couple of utilities that make my life easier when developing web applicat
 JsConcat : a simple node script to concantenate all files giving to it;
 less-watcher: a simple timer based less file watcher,updates your css files accordingly;
 nodelib: a simple node list implementation for use in less-watcher;
-require-js: a very old ,verbose concantenator,will not be update anymore;
+require-js: a very old ,verbose concantenator,will not be updated anymore;
 
 
 Most of the scripts require  you to just include a build file in your working projects root directory
