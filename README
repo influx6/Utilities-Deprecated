@@ -1,0 +1,52 @@
+Just a couple of utilities that make my life easier when developing web applications,nothing special.
+	
+JsConcat : a simple node script to concantenate all files giving to it;
+less-watcher: a simple timer based less file watcher,updates your css files accordingly;
+nodelib: a simple node list implementation for use in less-watcher;
+require-js: a very old ,verbose concantenate,will not be update anymore;
+
+
+Most of the scripts require  you to just include a build file in your working projects root directory
+which provides all necessary details on what to do:
+
+	for Less-Watcher:	create a build-less file in root directory of project,plug in a object literal like this:
+	
+		var watcher = require('less-watcher').LessWatcher;
+
+		var settings = {
+			"less" : "./assets/less",
+			
+			"css" : "./assets/css",
+	
+			"timeout" : 3000
+		};
+
+		watcher.init(settings);
+		
+	and then run node build-less to get running.
+	
+	
+	for jsConcat:
+	
+		var config = {
+			build_dir :" ./builds",
+	
+			use:{
+	
+				monster_engine: {
+					name: 'monster_engine.js',
+	    				src_dir : './assets/js',
+	    				src:['editor.js','log/logger.js']
+				},
+			
+			curler:{
+				name: 'curler.js',
+				src_dir : './assets/js/curler',
+				src: ['curler.js']
+				}
+		
+			}
+		}
+		
+		
+As of right now JsConcat is still unfinished!
