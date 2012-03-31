@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var LessWatcher = (function(fs,path,less,node){
 //setup variables
 var node = node.Node,
@@ -5,10 +7,9 @@ less = less,
 fs = fs,
 path = path,
 parser = new less.Parser,
-settings = {},
 timer;
 
-
+/* un-unused
 var check_build_file = function(){
    var a = path.normalize(path.resolve(process.cwd(),"build-less")),
    b = path.normalize(path.resolve(process.cwd(),"build_less")),
@@ -45,6 +46,7 @@ var readBuild = function(file){
        return false;
     }
 };
+*/
 
 var check_folder_state = function(less_dir,css_dir){
   
@@ -128,31 +130,19 @@ function stop(){
 	clearInterval(timer);
 };
 
-var init =  function(){
-  if(!check_build_file){
-  	console.log("build-less or build_less or buildless file not found in current directory!");
-  	return;
-  }
-  
-  start(path.resolve(settings.less,settings.css,settings.timeout));
+var init =  function(settings){
+  start(path.resolve(settings.less),path.resolve(settings.css),settings.timeout);
 };
 
 return {
-        
-	init: int,
-	settings:settings
+	start:start,
+	stop:stop,        
+	init: init
 }
 
 
-})(require("fs"),require("path"),require("less"),require("./nodelib.js"));
+})(require("fs"),require("path"),require("less"),require("nodelib"));
 
 
-//var folder = path.normalize(path.resolve(process.argv[2])),
-//laps = process.argv[3] || 3,
-//less_directory = folder+"/less",
-//css_directory = folder+"/css";
-
-//init(less_directory,css_directory, laps);
-
-console.log(LessWatcher);
 module.exports.LessWatcher = LessWatcher;
+
