@@ -1,0 +1,10 @@
+{
+	"name":"jsConcat",
+	"version":"0.0.1",
+	"description": "a small simple node script that takes your js files and bangs them together into one nice compressed file",
+	
+	"licenses":[{
+		"type":"MIT",
+      		"url": "http://mths.be/mit"
+	}]
+}
